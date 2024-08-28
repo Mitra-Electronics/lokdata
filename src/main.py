@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-import src.password.router as prouter
+import src.accounts.router as arouter
 
 app = FastAPI()
-app.include_router(prouter.app)
+app.include_router(arouter.app)
 
 
 @app.get("/register")
