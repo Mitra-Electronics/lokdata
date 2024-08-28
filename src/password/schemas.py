@@ -1,5 +1,6 @@
 from typing import Union
 from pydantic import BaseModel, EmailStr
+from datetime import date
 
 
 class Token(BaseModel):
@@ -15,6 +16,7 @@ class User(BaseModel):
     first_name: str
     last_name: str
     email: EmailStr
+    date: date
     disabled: bool
 
 
