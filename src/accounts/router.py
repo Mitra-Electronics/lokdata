@@ -3,6 +3,6 @@ from fastapi import APIRouter
 app = APIRouter()
 
 
-@app.get("/list")
-def list_passwords():
+@app.get("/login")
+def login():
     pass
