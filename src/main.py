@@ -5,6 +5,6 @@ app = FastAPI()
 app.include_router(arouter.app)
 
 
-@app.get("/register")
+@app.get("/registe")
 def register():
     return "Hello World"
