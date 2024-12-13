@@ -6,7 +6,6 @@ from datetime import datetime
 
 class Token(BaseModel):
     access_token: str
-    token_type: str
 
 
 class TokenData(BaseModel):
@@ -39,7 +38,6 @@ class UserRegister(UserBase):
 class User(UserBase):
     datetime: datetime
     disabled: bool
-    hashed_password: str
 
 
 class UserInDB(User):
