@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 
 from src.accounts.schemas import UserRegister, UserLogin, UserFind, User, UserInDB, Token
-from src.db import insert_acc, get_acc
-from src.hasher import verify_password
-from src.jwtd import create_access_token, decode_access_token
+from src.drivers.db import insert_acc, get_acc
+from src.drivers.hasher import verify_password
+from src.drivers.jwtd import create_access_token, decode_access_token
 
 app = APIRouter()
 

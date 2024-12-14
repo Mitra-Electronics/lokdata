@@ -4,7 +4,7 @@ from pymongo.server_api import ServerApi
 from datetime import datetime, timezone
 
 from src.accounts.schemas import UserRegister, UserFind
-from src.hasher import get_password_hash
+from drivers.hasher import get_password_hash
 
 uri = "mongodb+srv://ishan:ishan@auth.wlunjzj.mongodb.net/?retryWrites=true&w=majority&appName=Auth"
 
