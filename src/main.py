@@ -7,6 +7,6 @@ app.include_router(arouter.app, prefix="/accounts")
 app.include_router(srouter.app, prefix="/surveys")
 
 
-@app.get("/registe")
-def register():
-    return "Hello World"
+@app.get("/status")
+def status():
+    return {"status":200}
