@@ -9,4 +9,5 @@ def get_survey():
 
 @app.post("/create")
 def create_survey(input: SurveyCreate):
+    input = input.model_dump()
     return {"success":"dummy"}
