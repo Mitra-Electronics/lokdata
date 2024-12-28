@@ -1,15 +1,7 @@
-from typing import Optional, Union
+from typing import Optional
 from pydantic import BaseModel, EmailStr
 from pydantic_extra_types.phone_numbers import PhoneNumber
 from datetime import datetime
-
-
-class Token(BaseModel):
-    access_token: str
-
-
-class TokenData(BaseModel):
-    username: Union[str, None] = None
 
 
 class UserLogin(BaseModel):
