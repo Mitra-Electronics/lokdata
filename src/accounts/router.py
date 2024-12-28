@@ -17,7 +17,7 @@ def register(user: UserRegister):
 
 @app.post("/login")
 def login(user: UserLogin):
-    u = UserInDB(**get_acc(UserFind(email=user.email)))
+    u = UserInDB(**get_acc(UserFind(email=user.email).model_dump()))
     v = verify_password(user.password, u.hashed_password)
     if v is True:
         return {"success": True, "access_token": create_access_token(user.email)}
@@ -27,5 +27,5 @@ def login(user: UserLogin):
 @app.post("/user")
 def get_user(token: Token):
     email = decode_access_token(token.access_token)
-    u = User(**get_acc(UserFind(email=email)))
+    u = User(**get_acc(UserFind(email=email).model_dump()))
     return {"success": True, "result": u}
