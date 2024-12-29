@@ -46,6 +46,14 @@ def insert_acc(data: UserRegister):
     return res.acknowledged
 
 
+def get_survey(query: str):
+    user = get_acc({"email":query})
+    if user is None:
+        return None
+    surveys = sucoll.find({"creator_id": user["_id"]})
+    return surveys
+
+
 def insert_survey(data: dict):
     res = sucoll.insert_one(data)
     return res.acknowledged

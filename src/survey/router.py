@@ -9,8 +9,11 @@ app = APIRouter()
 
 @app.post("/get")
 def get_survey(params: Token):
-
-    return {"success": "dummy"}
+    email = decode_access_token(params.access_token)
+    surveys = get_survey(email)
+    if surveys is None:
+        return {"success": False}
+    return {"success": True, "result": surveys}
 
 
 @app.post("/create")
