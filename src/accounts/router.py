@@ -10,23 +10,23 @@ app = APIRouter()
 
 
 @app.post("/register")
-def register(user: UserRegister):
-    resv = insert_acc(user)
+def register(params: UserRegister):
+    resv = insert_acc(params)
     assert resv == True
     return {"success": True}
 
 
 @app.post("/login")
-def login(user: UserLogin):
-    u = UserInDB(**get_acc(UserFind(email=user.email).model_dump()))
-    v = verify_password(user.password, u.hashed_password)
+def login(params: UserLogin):
+    u = UserInDB(**get_acc(UserFind(email=params.email).model_dump()))
+    v = verify_password(params.password, u.hashed_password)
     if v is True:
-        return {"success": True, "access_token": create_access_token(user.email)}
+        return {"success": True, "access_token": create_access_token(params.email)}
     return {"success": False}
 
 
 @app.post("/user")
-def get_user(token: Token):
-    email = decode_access_token(token.access_token)
+def get_user(params: Token):
+    email = decode_access_token(params.access_token)
     u = User(**get_acc(UserFind(email=email).model_dump()))
     return {"success": True, "result": u}
